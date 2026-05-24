@@ -10,87 +10,84 @@ const getFoodDetails = async (id) => {
         : null;
 }
 
-
 const FoodDetails = ({ food }) => {
     return (
-        <div className="max-w-6xl mx-auto px-4 py-10 ">
+        <div className="max-w-6xl mx-auto px-6 py-12 text-zinc-100">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div className="sticky top-28 overflow-hidden rounded-3xl shadow-2xl shadow-black/50 border border-zinc-800 group">
+                    <img src={food.foodImg} alt={food.title} className="w-full h-[450px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"/>
 
-                {/* Left Side Image */}
-                <div className="overflow-hidden rounded-3xl shadow-xl">
-                    <img
-                        src={food.foodImg}
-                        alt={food.title}
-                        className="w-full h-[500px] object-cover hover:scale-105 transition duration-500"
-                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
 
-                {/* Right Side Content */}
-                <div>
+                <div className="flex flex-col h-full justify-between">
+                    <div>
 
-                    {/* Category & Area */}
-                    <div className="flex gap-3 mb-4">
-                        <span className="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-semibold">
-                            {food.category}
-                        </span>
+                        <div className="flex flex-wrap gap-2 mb-6">
+                            <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase">
+                                🍽️ {food.category}
+                            </span>
+                            <span className="bg-amber-500/10 text-amber-400 border border-amber-500/20 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase">
+                                📍 {food.area}
+                            </span>
+                        </div>
 
-                        <span className="bg-orange-100 text-orange-700 px-4 py-1 rounded-full text-sm font-semibold">
-                            {food.area}
-                        </span>
-                    </div>
+                        <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight tracking-wide">
+                            {food.title}
+                        </h1>
 
-                    {/* Title */}
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-5">
-                        {food.title}
-                    </h1>
+                        <div className="flex items-baseline gap-2 mb-6">
+                            <span className="text-4xl font-extrabold text-amber-500">
+                                ৳ {food.price}
+                            </span>
+                            <span className="text-zinc-500 text-sm tracking-wide">VAT Inclusive</span>
+                        </div>
 
-                    {/* Price */}
-                    <h2 className="text-3xl font-bold text-green-600 mb-6">
-                        ৳ {food.price}
-                    </h2>
-
-                    {/* Buttons */}
-                    <div className="flex flex-wrap gap-4">
-
-                        <button className="bg-indigo-500 text-white px-6 py-1.5 rounded-md hover:bg-indigo-700 transition">
-                            Add to Cart
-                        </button>
-
-                        <a
-                            href={food.video}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="border border-black px-8 py-1.5 rounded-md hover:bg-black hover:text-white transition"
-                        >
-                            Watch Recipe
-                        </a>
-                    </div>
-
-                    {/* Extra Info */}
-                    <div className="mt-10 border-t pt-6 space-y-3 text-white/70">
-
-                        <p>
-                            <span className="font-semibold">Food ID:</span>{" "}
-                            {food.id}
+                        <p className="text-zinc-400 leading-relaxed mb-8 text-base">
+                            Experience the authentic, rich flavors crafted meticulously by our master chefs.
+                            Made with fresh, locally-sourced premium ingredients and traditional spices to perfect every single bite.
                         </p>
 
-                        <p>
-                            <span className="font-semibold">Category ID:</span>{" "}
-                            {food.catId}
-                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                            <button className="flex-1 bg-amber-500 hover:bg-amber-600 text-zinc-950 font-bold px-8 py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 active:scale-[0.98] tracking-wide text-center">
+                                Add to Cart
+                            </button>
 
-                        <p>
-                            <span className="font-semibold">Cuisine:</span>{" "}
-                            {food.area}
-                        </p>
+                            <a
+                                href={food.video} target="_blank" rel="noreferrer"
+                                className="flex-1 flex items-center justify-center gap-2 border border-zinc-700 hover:border-zinc-500 text-zinc-200 hover:text-white px-8 py-3.5 rounded-xl bg-zinc-900/50 hover:bg-zinc-800 transition-all duration-300 active:scale-[0.98]"
+                            >
+                                <svg className="w-5 h-5 text-rose-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                                Watch Recipe
+                            </a>
+                        </div>
                     </div>
+
+                    {/* Metadata Card */}
+                    <div className="bg-zinc-900/60 border border-zinc-800/80 rounded-2xl p-6 space-y-3.5 shadow-inner">
+                        <h3 className="text-sm font-semibold text-zinc-300 uppercase tracking-widest border-b border-zinc-800 pb-2">
+                            Dish Overview
+                        </h3>
+                        <div className="grid grid-cols-2 gap-y-3 text-sm">
+                            <span className="text-zinc-500 font-medium">Food ID:</span>
+                            <span className="text-zinc-300 text-right font-mono">{food.id}</span>
+
+                            <span className="text-zinc-500 font-medium">Category ID:</span>
+                            <span className="text-zinc-300 text-right font-mono">{food.catId}</span>
+
+                            <span className="text-zinc-500 font-medium">Cuisine Style:</span>
+                            <span className="text-zinc-300 text-right font-medium">{food.area}</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     );
-}
-
+};
 
 
 

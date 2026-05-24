@@ -1,3 +1,4 @@
+
 import FoodCardSkeleton from '@/Components/Skeleton/FoodCardSkeleton';
 import React from 'react';
 

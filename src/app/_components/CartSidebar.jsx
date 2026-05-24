@@ -12,33 +12,35 @@ export default function CartSidebar({ isOpen, onClose, cartItems = [], onUpdateQ
   const totalItemsCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   // Lock body scrolling when sidebar drawer is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "unset";
+  //   }
+  //   return () => {
+  //     document.body.style.overflow = "unset";
+  //   };
+  // }, [isOpen]);
 
   return (
     <>
+      {/* Backdrop Blur Overlay */}
       <div
-        className={`fixed inset-0  z-50! bg-black/60 backdrop-blur-sm transition-opacity duration-300 ease-in-out overflow-visible ${
+        className={`fixed inset-0 z-50 top-0 right-0 h-screen bg-black/60 backdrop-blur-sm transition-opacity overflow-hidden duration-300 ease-in-out ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
         onClick={onClose}
       />
 
-
+      {/* Sliding Drawer - Sticky Positioning Fixes Applied */}
       <div
-        className={`fixed -top-20 md:top-0 right-0 z-50 h-screen w-full sm:max-w-md bg-zinc-950 border-l border-zinc-800/80 shadow-2xl transition-transform duration-300 ease-out flex flex-col justify-between ${
+        className={`fixed -top-20 md:top-0 right-0 z-50 h-[100dvh] w-full md:max-w-md bg-zinc-950 border-l border-zinc-800/80 shadow-2xl transition-transform duration-300 ease-out flex flex-col justify-between ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         
+        {/* Header */}
         <div className="p-6 border-b border-zinc-800/80 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <h3 className="text-xl font-serif font-bold text-white tracking-wide">
@@ -48,7 +50,6 @@ export default function CartSidebar({ isOpen, onClose, cartItems = [], onUpdateQ
               {totalItemsCount} items
             </span>
           </div>
-          
           
           <button
             onClick={onClose}
@@ -61,13 +62,14 @@ export default function CartSidebar({ isOpen, onClose, cartItems = [], onUpdateQ
           </button>
         </div>
 
-
-        <div className="flex-1 overflow-y-auto p-6 space-y-4 ">
+        {/* Scrollable Items Container */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-4">
           {cartItems.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-3 text-zinc-500">
               <span className="text-4xl">🍳</span>
               <p className="text-sm font-medium tracking-wide">Your culinary basket is empty.</p>
-              <Link href={"/foods"}
+              <Link 
+                href="/foods"
                 onClick={onClose}
                 className="text-xs font-bold uppercase text-amber-500 hover:text-amber-400 tracking-wider underline underline-offset-4"
               >
@@ -80,12 +82,10 @@ export default function CartSidebar({ isOpen, onClose, cartItems = [], onUpdateQ
                 key={item.id} 
                 className="flex items-center gap-4 bg-zinc-900/40 border border-zinc-900 p-3 rounded-xl hover:border-zinc-800 transition duration-200"
               >
-                
                 <div className="h-16 w-16 rounded-lg overflow-hidden bg-zinc-800 flex-shrink-0 border border-zinc-800">
                   <img src={item.foodImg} alt={item.title} className="w-full h-full object-cover" />
                 </div>
 
-                
                 <div className="flex-1 min-w-0">
                   <h4 className="text-sm font-semibold text-white tracking-wide truncate">
                     {item.title}
@@ -94,7 +94,6 @@ export default function CartSidebar({ isOpen, onClose, cartItems = [], onUpdateQ
                     ৳ {item.price}
                   </p>
                 </div>
-
 
                 <div className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 px-2 py-1 rounded-lg">
                   <button 
@@ -118,7 +117,7 @@ export default function CartSidebar({ isOpen, onClose, cartItems = [], onUpdateQ
           )}
         </div>
 
-
+        {/* Sticky Summary Footer */}
         {cartItems.length > 0 && (
           <div className="p-6 border-t border-zinc-800 bg-zinc-950 sticky bottom-0">
             <div className="space-y-2.5 text-sm mb-6">

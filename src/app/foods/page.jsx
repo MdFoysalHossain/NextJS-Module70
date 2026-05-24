@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
 
 const getFoods = async () => {
     const res = await fetch("https://taxi-kitchen-api.vercel.app/api/v1/foods/random");
@@ -81,6 +81,7 @@ export const metadata = {
 
 const FoodsPage = async () => {
     const foods = await getFoods()
+    
     console.log(foods)
     return (
         <div className='max-w-[1330px] mx-auto'>

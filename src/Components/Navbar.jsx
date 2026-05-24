@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import CartHideShow from "./CartHideShow";
+import CartHideShow from "@/app/_components/CartHideShow";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

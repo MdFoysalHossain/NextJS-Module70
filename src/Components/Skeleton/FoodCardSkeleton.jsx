@@ -11,7 +11,7 @@ const FoodCardSkeleton = () => {
             </div>
 
             {/* Content Area Placeholder */}
-            <div className="p-5 flex flex-col justify-between h-[210px]">
+            <div className="p-5 flex flex-col justify-between h-[180px]">
                 <div>
                     {/* Food Title Skeleton */}
                     <div className="h-6 w-3/4 bg-zinc-800 rounded-lg mb-4" />

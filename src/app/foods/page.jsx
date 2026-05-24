@@ -12,7 +12,7 @@ const getFoods = async () => {
 
 const FoodCards = (food) => {
     return (
-        <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white hover:shadow-2xl transition duration-300">
+        <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-zinc-900 hover:shadow-2xl transition duration-300">
 
             <div className="relative h-52 w-full overflow-hidden">
                 <img
@@ -29,10 +29,10 @@ const FoodCards = (food) => {
             </div>
 
             {/* Content */}
-            <div className="p-5 flex flex-col justify-between h-[210px]">
+            <div className="p-5 flex flex-col justify-between h-[180px]">
                 <div>
                     {/* Food Title */}
-                    <h2 className="text-xl font-serif font-bold text-black mb-2 line-clamp-1 group-hover:text-amber-400 transition-colors duration-300">
+                    <h2 className="text-xl font-serif font-bold text-white mb-2 line-clamp-1 group-hover:text-amber-400 transition-colors duration-300">
                         {food.title}
                     </h2>
 

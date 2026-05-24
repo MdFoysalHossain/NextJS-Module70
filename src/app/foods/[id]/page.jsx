@@ -105,7 +105,12 @@ const FoodDetailsPage = async ({ params }) => {
     console.log(!food ? "Food not found" : "Food found")
     return (
         <div>
-            {!food ? <p>Food not found <title>Gusto - Food Not Found!</title></p> : <FoodDetails food={food} />}
+            {!food ? <div className="">
+                <title>Gusto - Food Not Found!</title>
+                <div className="flex justify-center mt-20 items-center text-4xl font-bold">
+                    <p className='capitalize'> <span className='text-amber-500'>Food </span> not found</p>
+                </div>
+            </div> : <FoodDetails food={food} />}
         </div>
     );
 };

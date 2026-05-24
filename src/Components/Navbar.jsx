@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import CartHideShow from "./CartHideShow";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,13 +30,16 @@ export default function Navbar() {
           <Link href="/about" className="hover:text-amber-400 transition-colors py-2 border-b-2 border-transparent hover:border-amber-500">
             Our Story
           </Link>
+          {/* <CartHideShow/> */}
         </div>
 
-        <div className="hidden md:block">
-          <Link  href="/reservation"  className="bg-amber-500 hover:bg-amber-600 text-zinc-950 font-semibold px-6 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 text-sm uppercase tracking-wider"
+        <div className="hidden md:flex items-center gap-2.5">
+            
+          {/* <Link  href="/reservation"  className="bg-amber-500 hover:bg-amber-600 text-zinc-950 font-semibold px-6 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20 text-sm uppercase tracking-wider"
           >
             Book A Table
-          </Link>
+          </Link> */}
+          <CartHideShow/>
         </div>
 
         <div className="md:hidden">
@@ -58,7 +62,7 @@ export default function Navbar() {
           isOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible pointer-events-none"
         }`}
       >
-        <div className="px-6 pt-4 pb-8 flex flex-col gap-5 text-center font-medium tracking-wider uppercase">
+        <div className="px-6 pt-4 pb-8 flex flex-col justify-center items-center gap-5 text-center font-medium tracking-wider uppercase">
           <Link href="/" onClick={() => setIsOpen(false)} className="text-zinc-300 hover:text-amber-400 py-2 transition-colors">
             Home
           </Link>
@@ -73,9 +77,10 @@ export default function Navbar() {
             Our Story
           </Link>
           
-          <Link href="/reservation" onClick={() => setIsOpen(false)} className="bg-amber-500 hover:bg-amber-600 text-zinc-950 font-semibold px-6 py-3 rounded-md transition-colors mt-2">
+          {/* <Link href="/reservation" onClick={() => setIsOpen(false)} className="bg-amber-500 hover:bg-amber-600 text-zinc-950 font-semibold px-6 py-3 rounded-md transition-colors mt-2">
             Book A Table
-          </Link>
+          </Link> */}
+          <CartHideShow/>
         </div>
       </div>
     </nav>

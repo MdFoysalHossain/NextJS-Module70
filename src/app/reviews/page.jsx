@@ -8,6 +8,11 @@ const allReview = async () => {
     return reviews;
 }
 
+export const metadata = {
+  title: "Gustov - Reviews",
+  description: "Gustove is a culinary haven where passion meets flavor. Our restaurant is dedicated to crafting unforgettable dining experiences, blending exquisite dishes with warm hospitality. From farm-fresh ingredients to innovative recipes, we invite you to savor the art of gastronomy in every bite. Join us at Gustov and embark on a journey of taste that will delight your senses and create lasting memories.",
+};
+
 
 const ReviewCard = ({ reviewData }) => {
     // Format the ISO date into a clean readable string
@@ -19,7 +24,7 @@ const ReviewCard = ({ reviewData }) => {
 
     return (
         <div className="max-w-xl w-full rounded-2xl bg-zinc-900 border border-zinc-800 p-6 shadow-xl hover:shadow-2xl hover:border-zinc-700/60 transition-all duration-300 flex flex-col justify-between group">
-
+            <title>Gusto - Reviews</title>
             <div>
                 {/* Top Header: User Profile Info & Rating */}
                 <div className="flex items-start justify-between gap-4 mb-4">

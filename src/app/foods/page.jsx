@@ -13,6 +13,7 @@ const getFoods = async () => {
 const FoodCards = (food) => {
     return (
         <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-zinc-900 hover:shadow-2xl transition duration-300">
+            
 
             <div className="relative h-52 w-full overflow-hidden">
                 <img
@@ -71,6 +72,11 @@ const FoodCards = (food) => {
 }
 
 
+export const metadata = {
+  title: "Gustov - Menu",
+  description: "Gustove is a culinary haven where passion meets flavor. Our restaurant is dedicated to crafting unforgettable dining experiences, blending exquisite dishes with warm hospitality. From farm-fresh ingredients to innovative recipes, we invite you to savor the art of gastronomy in every bite. Join us at Gustov and embark on a journey of taste that will delight your senses and create lasting memories.",
+};
+
 
 
 const FoodsPage = async () => {
@@ -78,6 +84,7 @@ const FoodsPage = async () => {
     console.log(foods)
     return (
         <div className='max-w-[1330px] mx-auto'>
+            <title>Gusto - Menu</title>
             <div className="">
                 <h2 className='flex gap-1 text-3xl'>Total <p className='text-amber-500 font-semibold'>{foods.length}</p> Foods Found</h2>
             </div>

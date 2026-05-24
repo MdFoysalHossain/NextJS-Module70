@@ -10,7 +10,14 @@ const getFoodDetails = async (id) => {
         : null;
 }
 
+export const metadata = {
+  title: "Gustov - Food Details",
+  description: "Gustove is a culinary haven where passion meets flavor. Our restaurant is dedicated to crafting unforgettable dining experiences, blending exquisite dishes with warm hospitality. From farm-fresh ingredients to innovative recipes, we invite you to savor the art of gastronomy in every bite. Join us at Gustov and embark on a journey of taste that will delight your senses and create lasting memories.",
+};
+
+
 const FoodDetails = ({ food }) => {
+
     return (
         <div className="max-w-6xl mx-auto px-6 py-12 text-zinc-100">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -98,7 +105,7 @@ const FoodDetailsPage = async ({ params }) => {
     console.log(!food ? "Food not found" : "Food found")
     return (
         <div>
-            {!food ? <p>Food not found</p> : <FoodDetails food={food} />}
+            {!food ? <p>Food not found <title>Gusto - Food Not Found!</title></p> : <FoodDetails food={food} />}
         </div>
     );
 };

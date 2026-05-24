@@ -27,9 +27,6 @@ export default function Navbar() {
           <Link href="/reviews" className="hover:text-amber-400 transition-colors py-2 border-b-2 border-transparent hover:border-amber-500">
             Reviews
           </Link>
-          <Link href="/about" className="hover:text-amber-400 transition-colors py-2 border-b-2 border-transparent hover:border-amber-500">
-            Our Story
-          </Link>
           {/* <CartHideShow/> */}
         </div>
 

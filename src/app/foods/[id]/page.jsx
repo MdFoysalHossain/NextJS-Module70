@@ -22,7 +22,7 @@ const FoodDetails = ({ food }) => {
         <div className="max-w-6xl mx-auto px-6 py-12 text-zinc-100">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-                <div className="sticky top-28 overflow-hidden rounded-3xl shadow-2xl shadow-black/50 border border-zinc-800 group">
+                <div className="overflow-hidden rounded-3xl shadow-2xl shadow-black/50 border border-zinc-800 group">
                     <img src={food.foodImg} alt={food.title} className="w-full h-[450px] md:h-[550px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out"/>
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />

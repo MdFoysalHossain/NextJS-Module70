@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useContext } from 'react';
 import AddToCart from './_components/AddToCart';
 import SearchInput from './_components/SearchInput';
+import Image from 'next/image';
 
 const getFoods = async (search) => {
     console.log("Fetching foods with search query:", search);
@@ -17,11 +18,16 @@ const FoodCards = (food) => {
     return (
         <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-zinc-900 hover:shadow-2xl transition duration-300">
             <div className="relative h-52 w-full overflow-hidden">
-                <img
+                
+                <Image
+                    height={200}
+                    width={300}
                     src={food.foodImg}
                     alt={food.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
+
+
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/50 via-transparent to-transparent" />
 
                 {/* Floating Category Badge */}

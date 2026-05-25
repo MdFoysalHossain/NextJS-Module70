@@ -1,10 +1,10 @@
+import Image from 'next/image';
 import React from 'react';
 
 const allReview = async () => {
     const res = await fetch("https://taxi-kitchen-api.vercel.app/api/v1/reviews");
     const data = await res.json();
     const reviews = data.reviews || [];
-
     return reviews;
 }
 
@@ -31,8 +31,7 @@ const ReviewCard = ({ reviewData }) => {
                     <div className="flex items-center gap-3">
                         {/* User Avatar */}
                         <div className="relative h-12 w-12 rounded-full overflow-hidden border border-zinc-700 ring-2 ring-amber-500/10 group-hover:ring-amber-500/30 transition-all duration-300">
-                            <img
-                                src={reviewData.photo}
+                            <Image height={56} width={56} src={reviewData.photo}
                                 alt={reviewData.user}
                                 className="w-full h-full object-cover"
                             />
